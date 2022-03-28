@@ -1,0 +1,12 @@
+.logo{
+    border-radius: 10rem;
+}
+
+a{
+    background-color: grey;
+    transition: 5s;
+}
+
+a:hover{
+    background-color: aliceblue;
+}
