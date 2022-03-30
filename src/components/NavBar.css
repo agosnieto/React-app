@@ -3,10 +3,13 @@
 }
 
 a{
-    background-color: grey;
+    background-color: black;
     transition: 5s;
 }
 
 a:hover{
-    background-color: aliceblue;
+    background-color: rgb(224, 20, 20);
+}
+.title{
+    text-shadow: 0 0 5px yellow;
 }
