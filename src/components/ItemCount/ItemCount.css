@@ -1,0 +1,25 @@
+.boton{
+    background-color: lightblue;
+    margin: 5px;
+    width: 40px;
+    border-radius: 50px;
+}
+p{
+    color: black;
+}
+.addCarrito{
+    background-color: #7ce095;
+    border-radius: 40px;
+    margin-top: 5px;
+}
+.showProducto{
+    background-color: rgb(185, 158, 216);
+}
+.botonQuantity{
+    width: 330px;
+    background-color: rgb(233, 230, 213);
+    color: black;
+    border-radius: 25px;
+    border: solid black 2px;
+
+}
