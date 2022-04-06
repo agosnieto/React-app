@@ -1,0 +1,11 @@
+.card{
+    margin-top: 10px;
+}
+.card-footer{
+    margin-top: 10px;
+}
+p,h3{
+    color: beige;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+}
