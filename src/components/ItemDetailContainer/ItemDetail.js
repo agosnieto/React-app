@@ -5,22 +5,16 @@ const DetailProduct =()=>{
     const [products, setProducts] = useState([])
 
     useEffect(()=>{
-            getProductosById(id).then(res =>{
-                setProducts(res.id)
-
+        getProductosById(4).then(prods =>{
+            setProducts(prods)
         })
-    },[])
+},[])
   
     return(
-        <div>
             <ul>
-                {products.map(p=>{
-                    <li key={p.id}>
-                        {p.name}
-                    </li>
-                })}
+                {products.map(prod=> <ul key={prod.id} {...prod}/>)}
             </ul>
-        </div>
+        
     )
 
 }
