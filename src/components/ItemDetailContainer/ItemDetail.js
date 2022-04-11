@@ -5,7 +5,7 @@ const DetailProduct =()=>{
     const [products, setProducts] = useState([])
 
     useEffect(()=>{
-            getProductosById().then(res =>{
+            getProductosById(id).then(res =>{
                 setProducts(res.id)
 
         })

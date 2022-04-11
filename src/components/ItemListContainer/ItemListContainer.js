@@ -6,7 +6,7 @@ import ItemList from '../ItemList/ItemList'
 
 const ItemListContainer = ({greeting})=>{
     const handleAddProduct = (quantity)=>{
-        alert(`Se agregaron ${quantity} productos`)
+        console.log(`Se agregaron ${quantity} productos`)
     }
     const [products, setProducts] = useState([])
     useEffect(()=>{
