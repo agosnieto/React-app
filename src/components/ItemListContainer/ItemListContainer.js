@@ -5,6 +5,9 @@ import ItemList from '../ItemList/ItemList'
 
 
 const ItemListContainer = ({greeting})=>{
+    const handleAddProduct = (quantity)=>{
+        alert(`Se agregaron ${quantity} productos`)
+    }
     const [products, setProducts] = useState([])
     useEffect(()=>{
             getProductos().then(prods =>{
@@ -25,7 +28,7 @@ const ItemListContainer = ({greeting})=>{
     return(
         <div>
             <h4>{greeting}</h4>
-            <ItemCount onAdd={onAdd} stock={stock} initial={initial} count={count}></ItemCount>
+            <ItemCount onAdd={onAdd} stock={stock} initial={initial} count={count} addProduct={handleAddProduct}></ItemCount>
             <ItemList products={products}></ItemList>
         </div>
         

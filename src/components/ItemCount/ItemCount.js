@@ -1,7 +1,7 @@
 import React,{useState} from "react"
 import './ItemCount.css'
 
-const ItemCount=({onAdd, stock,initial, count})=>{
+const ItemCount=({onAdd, stock,initial, count,addProduct})=>{
 return(
     <div className="showProducto">
         <p>Llavero Harry Potter</p>
@@ -11,7 +11,7 @@ return(
             <button onClick={()=>{if(count > initial) {onAdd('-')}}}className="boton">-</button>
         </p>
         <br></br>
-        <button className="addCarrito btn-lg">Agregar al Carrito</button>
+        <button className="addCarrito btn-lg" onClick={()=>addProduct(count)}>Agregar al Carrito</button>
     </div>
 )
 }
