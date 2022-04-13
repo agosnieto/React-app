@@ -3,8 +3,8 @@ import './CartWidget.css'
 const CartWidgest = ()=>{
     return(
         <div>
-            <img src={'./images/cart.png'} width="100px" class='logo'alt=""></img>
-            <p class='cartClass'>7</p>
+            <button className='buttoCar'><img src={'./images/carrito-de-compras.png'} width="40px" class='logo'alt=""></img>
+            </button>
         </div>
         
     )

@@ -1,6 +1,5 @@
-import './Item.css'
 
-const Item =({name, imagen, price,stock})=>{
+const ItemDetail = ({name, imagen, price,stock}) => {
     return(
         <div className='mago'>
             <div className='card body-color'>
@@ -14,7 +13,7 @@ const Item =({name, imagen, price,stock})=>{
                 </div>
            </div>
         </div>
-           
-        )
+    )
 }
-export default Item
+
+export default ItemDetail

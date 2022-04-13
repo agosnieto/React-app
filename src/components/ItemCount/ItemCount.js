@@ -3,7 +3,7 @@ import './ItemCount.css'
 
 const ItemCount=({onAdd, stock,initial, count,addProduct})=>{
 return(
-    <div className="showProducto">
+    <div className="showProducto card card border-warning">
         <p>Llavero Harry Potter</p>
         <p className="botonQuantity">
             <button onClick={()=> {if(count < stock) {onAdd('+')}}} className="boton">+</button>

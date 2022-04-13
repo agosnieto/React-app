@@ -8,12 +8,14 @@ p{
     color: black;
 }
 .addCarrito{
-    background-color: #7ce095;
+    background-color: #e2b64c;
     border-radius: 40px;
     margin-top: 5px;
+    border-color: black;
+    margin: 5px;
 }
 .showProducto{
-    background-color: rgb(185, 158, 216);
+    background-color:rgb(255, 255, 255, 0.2);
 }
 .botonQuantity{
     width: 330px;
