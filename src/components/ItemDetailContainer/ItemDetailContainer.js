@@ -1,6 +1,8 @@
 import { useState,useEffect } from "react"
 import { getProductosById } from "../../asyncmock"
 import ItemDetail from "../ItemDetail/ItemDetail"
+import ItemCount from "../ItemCount/ItemCount"
+import ItemListContainer from "../ItemListContainer/ItemListContainer"
 
 const ItemDetailContainer=()=>{
     const[product, setProduct] = useState({})
@@ -14,8 +16,10 @@ const ItemDetailContainer=()=>{
 
     return(
         <div>
-            <h1>Hello World Shop</h1>
-            <ItemDetail producto={product}></ItemDetail>
+            <h1>Detalle</h1>
+            <ItemDetail {...product}/>
+            <ItemCount></ItemCount>
+            
         </div>
     )
 }

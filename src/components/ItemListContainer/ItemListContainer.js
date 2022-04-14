@@ -4,7 +4,7 @@ import { getProductos } from '../../asyncmock'
 import ItemList from '../ItemList/ItemList'
 
 
-const ItemListContainer = ({greeting})=>{
+export const ItemListContainer = ({greeting})=>{
     const handleAddProduct = (quantity)=>{
         console.log(`Se agregaron ${quantity} productos`)
     }

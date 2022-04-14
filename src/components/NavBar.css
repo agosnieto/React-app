@@ -14,7 +14,7 @@
     background-color: #aca8a8;
 }
 nav{
-    background-color: black;
+    background-color: white;
     padding: 10px;
     display: flex;
     justify-content: space-around;
@@ -22,7 +22,9 @@ nav{
 a:hover{
     color: white;
 }
-
+h1{
+    color: white;
+}
 @media (max-width: 600px) {
     nav{
         flex-direction: column;

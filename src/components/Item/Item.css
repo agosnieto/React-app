@@ -1,8 +1,27 @@
-.body-color{
-    background-color: rgb(114, 7, 7);
-    border-color: #e2b64c;
+body{
+    background-color: white;
 }
-.mago{
+
+
+.container{
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    
+   
+}
+.cardt{
+    width: 300px;
+    height: 450px;
+    background-color:white;
+    margin: 15px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px 10px grey;
+    
+}
+.cardt-image{
+    border-radius: 15px 15px 0 0;
+    background-size: cover
+}
+.img-item{
+    border: 3px solid black;
 }

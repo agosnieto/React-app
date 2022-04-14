@@ -2,9 +2,14 @@ import Item from '../Item/Item'
 
 const ItemList =({products})=>{
     return(
-        <ul>
+      <p>
             {products.map(prod=> <Item key={prod.id} {...prod}/>)}
-        </ul>
+      </p>
+           
+        
+               
+            
+           
     )
 }
 export default ItemList

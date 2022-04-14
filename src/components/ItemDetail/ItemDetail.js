@@ -1,18 +1,16 @@
 
 const ItemDetail = ({name, imagen, price,stock}) => {
     return(
-        <div className='mago'>
-            <div className='card body-color'>
-                <div className='card-body'>
-                    <h1>{name}</h1>
-                    <img src={imagen}></img>
-                    <p>{price}</p>
-                    <div className='card-footer border-light'>
-                        <p>Stock: {stock}</p>
+        <section className='container'>
+                <div className='cardt'>
+                    <div className='cardt-image'>
+                        <h3>{name}</h3>
+                        <img src={imagen} width='290px'></img>
+                        <h4>${price}</h4>
+                        <h4>Stock: {stock}</h4>
                     </div>
                 </div>
-           </div>
-        </div>
+            </section>
     )
 }
 
