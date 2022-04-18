@@ -1,7 +1,8 @@
 import './Item.css'
 import ItemCount from '../ItemCount/ItemCount'
+import { Link } from 'react-router-dom'
 
-const Item =({name, imagen, price,stock})=>{
+const Item =({id,name, imagen, price,stock})=>{
     return(
             <section className='container'>
                 <div className='cardt'>
@@ -10,6 +11,7 @@ const Item =({name, imagen, price,stock})=>{
                         <img src={imagen} width='290px' className='img-item'></img>
                         <h4>${price}</h4>
                         <h4>Stock: {stock}</h4>
+                        <Link to={`/detail/${id}`}>View Detail</Link>
                     </div>
                 </div>
             </section>

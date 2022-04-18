@@ -1,10 +1,11 @@
 import './NavBar.css';
+import { Link } from 'react-router-dom';
 
 const NavBar=()=>{
     return(
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-                <img src={'./images/HL logo.svg'} width='80px'></img>
+                <a><img src={'./images/HL logo.svg'} width='80px' className='img-nav'></img></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
