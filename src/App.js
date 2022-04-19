@@ -14,8 +14,10 @@ import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
       <BrowserRouter>
         <NavBar/>
           <Routes>
-            <Route path='/list' element={<ItemListContainer/>}></Route>
-            <Route path='/detail' element={<ItemDetailContainer/>}></Route>
+            <Route path='/' element={<ItemListContainer/>}></Route>
+            <Route path='/item/:id' element={<ItemDetailContainer/>}></Route>
+            <Route path='/category/:categoryId' element={<ItemListContainer/>}></Route>
+            
           </Routes>
 
       </BrowserRouter>

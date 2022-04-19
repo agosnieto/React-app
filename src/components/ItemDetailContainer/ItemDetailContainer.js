@@ -5,13 +5,14 @@ import ItemCount from "../ItemCount/ItemCount"
 import ItemListContainer from "../ItemListContainer/ItemListContainer"
 import { useParams } from "react-router-dom"
 
+
 const ItemDetailContainer=()=>{
     const[product, setProduct] = useState({})
 
     const{ProductsId} = useParams()
 
     useEffect((ProductsId)=>{
-         getProductosById(3).then(prods =>{
+         getProductosById(ProductsId).then(prods =>{
              setProduct(prods);
          })
     },[])
