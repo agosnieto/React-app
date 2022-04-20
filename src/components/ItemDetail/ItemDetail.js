@@ -1,7 +1,7 @@
 import { useState } from "react"
 import ItemCount from "../ItemCount/ItemCount"
 
-const ItemDetail = ({name, imagen, price}) => {
+const ItemDetail = ({name, imagen, price,stock}) => {
     const handleAddProduct = (quantity)=>{
         console.log(`Se agregaron ${quantity} productos`)
     }
@@ -13,7 +13,6 @@ const ItemDetail = ({name, imagen, price}) => {
             setCount (count - 1)
         }
     }
-    const stock = 15;
     const initial = 1;
     return(
         <section className='container'>

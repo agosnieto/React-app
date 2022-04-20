@@ -58,9 +58,9 @@ const products=[
     ]
 
     const categories =[
-        {id:'White', description: "Vino blanco"},
-        {id:'Red', description: "Vino tinto"},
-        {id:'Rose', description: "Vino rosado"}
+        {id:'White', description: "WHITE"},
+        {id:'Red', description: "RED"},
+        {id:'Rose', description: "ROSE"}
     ]
 
 
