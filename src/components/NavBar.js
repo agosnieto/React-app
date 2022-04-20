@@ -1,30 +1,23 @@
 import './NavBar.css';
-import { Link } from 'react-router-dom';
+import { Link, NavLink} from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { getCategories } from '../asyncmock';
 
-const NavBar=()=>{
+
+const NavBar=(id)=>{
+
+    const[categories, setCategories]= useState([])
+
+    useEffect(()=>{
+        getCategories().then(categories =>{
+            setCategories(categories)
+        })
+    },[])
     return(
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-                <a><img src={'./images/HL logo.svg'} width='80px' className='img-nav'></img></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                    
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Products</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
-                    </li>
-                </ul>
-            </div>
+            <Link to={'/'}><h1>HL</h1></Link>
+            {categories.map(cate =><NavLink key={cate.id} to ={`/category/${cate.id}`}>{cate.description}</NavLink>)}
         </div>
     </nav>
     
