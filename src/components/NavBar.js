@@ -2,6 +2,7 @@ import './NavBar.css';
 import { Link, NavLink} from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getCategories } from '../asyncmock';
+import CartWidgest from './CartWidget/CartWidget';
 
 
 const NavBar=(id)=>{
@@ -18,6 +19,7 @@ const NavBar=(id)=>{
             <div class="container-fluid">
             <Link to={'/'}><h1>HL</h1></Link>
             {categories.map(cate =><NavLink key={cate.id} to ={`/category/${cate.id}`}>{cate.description}</NavLink>)}
+            <Link to={'/'}><CartWidgest></CartWidgest></Link>
         </div>
     </nav>
     
