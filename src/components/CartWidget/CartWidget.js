@@ -1,9 +1,12 @@
 import './CartWidget.css'
+import { useContext } from 'react'
+import CartContext from '../Context/CartContext'
 
 const CartWidgest = ()=>{
+    const{countQuantity}=useContext(CartContext)
     return(
         <div>
-            <button className='buttoCar'><img src={'./images/carrito-de-compras.png'} width="40px" class='logo'alt=""></img>
+            <button className='buttoCar'><img src={'./images/carrito-de-compras.png'} width="40px" class='logo'alt=""></img>{countQuantity()}
             </button>
         </div>
         

@@ -1,40 +1,48 @@
-import React from "react";
-import { useState } from "react";
-import { useContext,createContext } from "react";
+import React from 'react'
+import {createContext,useState} from 'react'
 
-export const cartContext = createContext({})
-export const useCartContext =()=> useContext(cartContext)
+ const CartContext = createContext()
 
-const CartContextProvide=(
-    {children})=>{
-    const[cart,setCart]= useState([])
-    console.log(cart)
 
-    const isInCart =(id)=>{cart.some(item => item.id == id)}
-    const clearCart =()=>{setCart([])}
+ export const CartContextProvider =({children})=>{
+        const [cart, setCart] = useState([])
+        console.log(cart)
 
-    const removeItem =(id)=>setCart(cart.filter(item=> item.id !== id))
-    const addToCart =(item, quantity)=>{
-        if (isInCart(item.id)) {
-            const newCart = cart.map(cartElement =>{
-                if (cartElement.id == item.id){
-                    return {...cartElement,quantity:cartElement.quantity + quantity}
-                    
-                } else 
-                    return cartElement
-    
-            })
-            setCart(newCart)
-            
-        } else {
-            setCart(prev =>[...prev,{...item, quantity}])
+        const addItem =(addToProduct)=>{
+            setCart([...cart,addToProduct])
         }
-    }
-    return(
-        <cartContext.Provider value={{cart, setCart,addToCart,removeItem,clearCart}}>
-            {children}
-        </cartContext.Provider>
-    )
-    }
 
-export default CartContextProvide
+        const countQuantity =()=>{
+            let count = 0
+            cart.forEach(prod =>{
+                count = count += prod.quantity
+            })
+            return count
+        }
+        const IsInCart=(id)=>{
+            return cart.some(prod => prod.id === id)
+        }
+
+        const ClearCart=()=>{
+            setCart([])
+        }
+
+        const RemoveItem=(id)=>{
+           const productFilter = cart.filter(prod => prod.id !== id)
+           setCart(productFilter)
+        }
+
+        return(
+            <CartContext.Provider value={{cart,
+            addItem,
+            countQuantity,
+            IsInCart,
+            ClearCart,
+            RemoveItem
+            }}>
+                {children}
+            </CartContext.Provider>
+        )
+}
+
+export default CartContext
