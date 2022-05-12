@@ -36,7 +36,7 @@ const ItemDetail = ({name, imagen, price,stock,id}) => {
                 <img src={imagen} width='290px' className='img-item'></img>
                 <h4>${price}</h4>
                 <h4>Stock: {stock}</h4>
-                {IsInCart(id)? <Link to='/cart'>Ir al Carrito</Link>:<ItemCount onAdd={onAdd} stock={stock} initial={initial} count={count} addProduct={handleAddProduct}></ItemCount>}
+                {IsInCart(id)? <Link to='/Cart'>Ir al Carrito</Link>:<ItemCount onAdd={onAdd} stock={stock} initial={initial} count={count} addProduct={handleAddProduct}></ItemCount>}
             </div>
         </div>
     </section>

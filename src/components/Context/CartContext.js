@@ -32,13 +32,23 @@ import {createContext,useState} from 'react'
            setCart(productFilter)
         }
 
+        const CalcularTotal=()=>{
+            let total = 0
+            cart.forEach(prod =>{
+                total += prod.quantity * prod.price
+                console.log(total)
+            })
+            return total
+        }
+
         return(
             <CartContext.Provider value={{cart,
             addItem,
             countQuantity,
             IsInCart,
             ClearCart,
-            RemoveItem
+            RemoveItem,
+            CalcularTotal
             }}>
                 {children}
             </CartContext.Provider>
