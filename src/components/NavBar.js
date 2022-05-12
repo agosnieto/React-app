@@ -1,8 +1,9 @@
 import './NavBar.css';
 import { Link, NavLink} from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { getCategories } from '../asyncmock';
 import CartWidgest from './CartWidget/CartWidget';
+import { firestoreBD } from './services/firebase';
+import { getDocs,collection } from 'firebase/firestore';
 
 
 const NavBar=(id)=>{
@@ -10,10 +11,14 @@ const NavBar=(id)=>{
     const[categories, setCategories]= useState([])
 
     useEffect(()=>{
-        getCategories().then(categories =>{
+        getDocs(collection(firestoreBD,'categories')).then(resp=>{
+            const categories = resp.docs.map(doc=>{
+                return{id: doc.id, ...doc.data()}
+            })
             setCategories(categories)
         })
     },[])
+
     return(
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">

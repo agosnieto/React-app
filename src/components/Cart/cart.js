@@ -5,5 +5,4 @@ const Cart=()=>{
         <ItemCart></ItemCart>
     )
 }
-
 export default Cart
