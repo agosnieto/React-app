@@ -20,7 +20,7 @@ const ItemCart=(id,name,price,quantity)=>{
           <ul>
             {cart.map(prod=> <li key={prod.id}>{prod.name} cantidad: {prod.quantity} precio: ${prod.price} subtotal:$ {prod.quantity * prod.price}<button onClick={()=>RemoveItem(prod.id)}>X</button></li>) }
         </ul>
-        <h1>Total:{CalcularTotal}</h1>
+        <h1>Total: $ {CalcularTotal()}</h1>
         </>
       
        

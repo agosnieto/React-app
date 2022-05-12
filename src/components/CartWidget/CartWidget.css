@@ -2,3 +2,7 @@
     background-color: white;
     border-color: #e2b64c;
 }
+
+.visibilidad{
+    visibility: hidden;
+}
