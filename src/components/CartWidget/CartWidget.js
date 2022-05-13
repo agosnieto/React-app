@@ -1,7 +1,6 @@
 import './CartWidget.css'
 import { useContext } from 'react'
 import CartContext from '../Context/CartContext'
-import Cart from '../Cart/cart'
 
 const CartWidgest = ()=>{
     const{countQuantity,cart}=useContext(CartContext)
