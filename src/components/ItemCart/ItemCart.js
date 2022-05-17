@@ -1,22 +1,45 @@
 import CartContext from "../Context/CartContext"
-import { useContext } from "react"
-import { Link } from "react-router-dom"
+import { useContext, useState } from "react"
 import {addDoc, documentId, getDocs, query, where, writeBatch,collection} from 'firebase/firestore'
 import { firestoreBD } from "../services/firebase"
 import './ItemCart.css'
 
-const ItemCart=(id,name,price,quantity)=>{
+const ItemCart=()=>{
 
-    const{cart,RemoveItem,CalcularTotal,ClearCart,}= useContext(CartContext)
+    const[order, setOrder]= useState(null)
 
-    const CreateOrder=()=>{
+    const{cart,CalcularTotal}= useContext(CartContext)
+    const[buttonConfirm, setButtonConfirm]=useState(true)
+    const[input, setInput]=useState({name:'', phone:'',email:'',emailConfirm:''})
+    
+    const handleSubmit =(e)=>{
+        e.preventDefault()
+    }
+
+    const onBlurHandler=(e)=>{
+        if(input.email === input.emailConfirm){
+            setButtonConfirm(false)
+        }else{
+            alert('Email incorrecto')
+        }
+    }
+    const handleChange=(e)=>{
+        const name = e.target.name
+        const value= e.target.value
+        setInput(val =>({...val,[name]:value}))
+    }
+    const createOrder=()=>{
         const objOrder ={
-        items: cart,
-        buyer:{
-            name:'Agos',
-            phone:'12344900',
-            email:'agos@gamil.com'
-            },
+        items: cart.map(prod=>{
+            return{
+                id:prod.id,
+                name: prod.name,
+                price: prod.price,
+                img: prod.img,
+                stock: prod.stock
+            }
+        }),
+        buyer:{...input},
         total:CalcularTotal(),
         date: new Date()
         }
@@ -40,7 +63,7 @@ const ItemCart=(id,name,price,quantity)=>{
                 }
             })
         }).then(()=>{
-            if(noStock.length == 0){
+            if(noStock.length === 0){
                 const collectionToRef = collection(firestoreBD,'usersOrders')
                 return addDoc(collectionToRef,objOrder)
             }else{
@@ -49,6 +72,7 @@ const ItemCart=(id,name,price,quantity)=>{
         }).then(({id})=>{
             batch.commit()
             console.log(id)
+            return setOrder(order)
 
         }).catch(error=>{
             console.log(error)
@@ -56,27 +80,32 @@ const ItemCart=(id,name,price,quantity)=>{
 
     }
 
-    if(cart.length == 0){
-        return(
-            <div>
-                <Link to='/ItemDetailContainer'>Volver y Comprar</Link>
-            </div>
-        )
-    }
-
     return(
         <>
-          <ul>
-            {cart.map(prod=> <li key={prod.id}>{prod.name} cantidad: {prod.quantity} precio: ${prod.price} subtotal:$ {prod.quantity * prod.price}<button onClick={()=>RemoveItem(prod.id)}>X</button></li>) }
-        </ul>
-        <h1>Total: $ {CalcularTotal()}</h1>
-        <button onClick={ClearCart} className='limpiar'>Limpiar Carrito</button>
-        <button onClick={CreateOrder} className='collectionActualize'>Crear Orden</button>
+        <div className="">
+            <div className="">
+                <form onSubmit={handleSubmit}>
+                    <h2 className=''>Completa tus datos</h2>
+                    <div className=''>
+                        <div className=''>
+                            <div className=''>
+                                <label><input required className='' placeholder="Name and Surname" type='text' onChange={handleChange} name="name" value={input.name || ""} /></label>
+                                <label><input required className={(input.emailConfirm === input.email) ? 'greenOk' : 'redWrong'} placeholder="Email" type='text' onChange={handleChange} name="mail" value={input.email || ""} /></label>
+                                <label><input required className={(input.emailConfirm === input.email) ? 'greenOk' : 'redWrong'} placeholder="Again your email" type='text' onChange={handleChange} onBlur={onBlurHandler} name="mailConfirm" value={input.emailConfirm || ""} /></label>
+                                <label><input required className='greenOk' placeholder="Phone" type="number" onChange={handleChange} name="phone" value={input.phone || ""} /></label>
+                                <div>
+                                    <button type="submit" onClick={() => createOrder()} className="" disabled={buttonConfirm}>Finalizar compra</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
         </>
-      
-       
        
     )
+
 }
 
 export default ItemCart

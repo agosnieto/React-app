@@ -13,7 +13,7 @@ const ItemDetailContainer=()=>{
             const product={id: resp.id, ...resp.data()}
             setProduct(product)
          })
-    },)
+    },[id])
 
 
     return(

@@ -41,15 +41,18 @@ import {createContext,useState} from 'react'
             return total
         }
 
-        return(
-            <CartContext.Provider value={{cart,
+        const dates={
+            cart,
             addItem,
             countQuantity,
             IsInCart,
             ClearCart,
             RemoveItem,
             CalcularTotal
-            }}>
+        }
+
+        return(
+            <CartContext.Provider value={{dates}}>
                 {children}
             </CartContext.Provider>
         )

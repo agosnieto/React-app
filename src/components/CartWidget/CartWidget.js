@@ -4,6 +4,7 @@ import CartContext from '../Context/CartContext'
 
 const CartWidgest = ()=>{
     const{countQuantity,cart}=useContext(CartContext)
+    
     if(cart.length !==0){
         return(
             <div>
