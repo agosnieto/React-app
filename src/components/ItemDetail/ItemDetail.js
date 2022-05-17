@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import ItemCount from "../ItemCount/ItemCount"
 import CartContext from "../Context/CartContext"
 
-const ItemDetail = ({name, imagen, price,stock,id}) => {
+const ItemDetail = ({name, img, price,stock,id}) => {
     const [quantity,setQuantity]= useState(0)
 
     const {addItem,IsInCart} = useContext(CartContext)
@@ -33,7 +33,7 @@ const ItemDetail = ({name, imagen, price,stock,id}) => {
         <div className='cardt'>
             <div className='cardt-image'>
                 <h3>{name}</h3>
-                <img src={imagen} width='290px' className='img-item'></img>
+                <img src={img} width='290px' className='img-item'></img>
                 <h4>${price}</h4>
                 <h4>Stock: {stock}</h4>
                 {IsInCart(id)? <Link to='/Cart'>Terminar Compra</Link>:<ItemCount onAdd={onAdd} stock={stock} initial={initial} count={count} addProduct={handleAddProduct}></ItemCount>}

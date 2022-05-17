@@ -1,0 +1,13 @@
+.blueOk{
+    border-width: 5px;
+    border-color: blue;
+    border-style: solid;
+    border-radius: 3px;
+}
+
+.redWrong{
+    border-width: 5px;
+    border-color: red;
+    border-style: solid;
+    border-radius: 3px;
+}

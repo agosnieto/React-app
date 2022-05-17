@@ -4,5 +4,8 @@
 }
 
 .visibilidad{
-    visibility: hidden;
+    background-color: green;
+}
+.noVision{
+    display: none;
 }

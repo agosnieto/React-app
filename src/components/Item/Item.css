@@ -6,12 +6,13 @@ body{
 .container{
     display: flex;
     justify-content: center;
+    flex-wrap: nowrap;
     
    
 }
 .cardt{
     width: 300px;
-    height: 450px;
+    height: 500px;
     background-color:white;
     margin: 15px;
     border-radius: 10px;
@@ -24,6 +25,11 @@ body{
 }
 .img-item{
     border: 3px solid black;
+    width: 230px;
+}
+.name-products{
+   font-size: 22px;
+    font-weight: 600;
 }
 @media (max-width: 600px) {
     .cardt{
