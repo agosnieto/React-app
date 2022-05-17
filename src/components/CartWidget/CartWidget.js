@@ -5,17 +5,17 @@ import CartContext from '../Context/CartContext'
 const CartWidgest = ()=>{
     const{countQuantity,cart}=useContext(CartContext)
 
-    if(cart !==0){
+    if(cart.lenght !==0){
         return(
-            <div>
-                <button className='buttoCar'><img src={'./images/carrito-de-compras.png'} width="40px" class='logo'alt=""></img>{countQuantity}
+            <div className='buttoCar '>
+                <button className='buttoCar'><img src={'./images/carrito-de-compras.png'} width="40px" class='logo'alt=""></img>{countQuantity()}
                 </button>
             </div>
         )
-    }else{
+        }else{
         return(
             <div>
-                <button className='buttoCar visibilidad'><img src={'./images/carrito-de-compras.png'} width="40px" class='logo'alt=""></img>{countQuantity()}
+                <button className='buttoCar'><img src={'./images/carrito-de-compras.png'} width="40px" class='logo'alt=""></img>{countQuantity()}
                 </button>
             </div>
         )

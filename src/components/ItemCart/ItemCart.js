@@ -3,33 +3,71 @@ import { useContext, useState } from "react"
 import {addDoc, documentId, getDocs, query, where, writeBatch,collection} from 'firebase/firestore'
 import { firestoreBD } from "../services/firebase"
 import './ItemCart.css'
-import Cart from "../Cart/cart"
-import { Link
- } from "react-router-dom"
+import { Link} from "react-router-dom"
+
+
 const ItemCart=()=>{
+   
+    const[order,setOrder]=useState()
 
-    const[order, setOrder]= useState(null)
     const{cart,CalcularTotal,RemoveItem,ClearCart}= useContext(CartContext)
-    const[input, setInput]=useState({name:'', phone:'',email:'',emailConfirm:''})
-    
-    const createOrder=()=>{
-        const objOrder ={
-        items: cart,
-        buyer:{
-            name:'',
-            phone:'',
-            email:'',
-        },
-        total:CalcularTotal(),
-        date: new Date()}
+   
+    const[dataForm, setDataForm]=useState({
+               
+            items: cart.map(prod=>{
+                return({
+                    id: prod.id,
+                    name: prod.name,
+                    price: prod.price
+                })
+            }),
+            buyer:{
+                name:'',
+                phone:'',
+                email:'',
+            },
+            total:CalcularTotal(),
+            date: new Date()
+        })
         
-        const idsCart = cart.map(prod => prod.id)
 
-        const batch = writeBatch(firestoreBD)
+        const handleSumit=(e)=>{
+            e.preventDefault()
+            setOrder({...order,
+                buyer:dataForm})
+        }
+        const handleChange=(e)=>{
+            const{value, name}=e.target
+            setDataForm({
+                ...dataForm,
+                [name]:value
+            })}
+            
 
-        const collectionToRef = collection(firestoreBD,'products')      
+        const createOrder =()=>{
+            const objOrder ={
+                items: cart.map(prod=>{
+                    return({
+                        id:prod.id,
+                        name:prod.name,
+                        price: prod.price
+                    })
 
-        const noStock =[]
+                }),
+                buyer:dataForm,
+                total:CalcularTotal(),
+                date: new Date()
+            }
+        
+              
+            const idsCart = cart.map(prod => prod.id)
+
+            const batch = writeBatch(firestoreBD)
+
+            const collectionToRef = collection(firestoreBD,'products')      
+
+            const noStock =[]
+
 
         getDocs(query(collectionToRef,where(documentId(),'in',idsCart))).then(resp=>{
             resp.docs.forEach(doc=>{
@@ -58,7 +96,7 @@ const ItemCart=()=>{
             console.log(error)
         })
 
-}
+
     
     if(cart.length == 0){
         return(
@@ -67,6 +105,8 @@ const ItemCart=()=>{
             </div>
         )
     }
+   
+
     return(
         <>
             <ul>
@@ -75,8 +115,18 @@ const ItemCart=()=>{
             <h1>Total: $ {CalcularTotal()}</h1>
             <button onClick={ClearCart} className='limpiar'>Limpiar Carrito</button>
             <button onClick={createOrder} className='collectionActualize'>Crear Orden</button>
+            <button>Completar Compra</button>
+
+            <form onSubmit={handleSumit}>
+            <h2>Form</h2>
+            <input type='text' name="name" placeholder='Name' onChange={handleChange} value={dataForm.name
+            }></input>
+            <input type='number' name="phone" placeholder='Phone Number' onChange={handleChange} value={dataForm.phone} ></input>
+            <input type='mail' name="email" placeholder='Email'onChange={handleChange} value={dataForm.email}></input>
+        </form>
         </>
     )
-}
+   
+ }}
 
 export default ItemCart
