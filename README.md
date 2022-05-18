@@ -11,6 +11,7 @@ Funciones de CartContext:
  
  Lenguajes utilizados:
  HTML,CSS,JavaScript,React Js!
- [Uploading 2022-05-17 22-29-10.gif…]()
 
+
+![2022-05-17 22-29-10](https://user-images.githubusercontent.com/70344793/168939237-e4bc6f92-0928-4106-b136-ff94c7bf65e8.gif)
 
