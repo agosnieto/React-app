@@ -1,0 +1,21 @@
+ul{
+    list-style-type: none;
+    background-color: rgba(77, 36, 112, 0.5);
+    color: white;
+    font-size:larger;
+    font-weight: bold;
+}
+.total{
+    color: white;
+}
+.limpiar{
+    background-color: red;
+    color: white;
+}
+.crearOrden{
+    background-color: green;
+    color: white;
+}
+.volverInicio{
+    color: white;
+}

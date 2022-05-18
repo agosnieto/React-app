@@ -7,6 +7,8 @@ import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
 import {CartContextProvider}  from './components/Context/CartContext';
 import Cart from './components/Cart/Cart';
 import Form from './components/Form/Form';
+import NotFound from './components/NotFound/NotFound';
+
 
  function App() {
   return (
@@ -22,6 +24,7 @@ import Form from './components/Form/Form';
                     <Route path='/cart' element={<Cart></Cart>}></Route>
                     <Route path='/ItemDetailContainer' element={<ItemListContainer/>}></Route>
                     <Route path='/form' element={<Form></Form>}></Route>
+                    <Route path='*' element={<NotFound></NotFound>}></Route>
                 </Routes>
         </BrowserRouter>
       </CartContextProvider>

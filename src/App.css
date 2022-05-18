@@ -1,8 +1,14 @@
 .App {
   text-align: center;
-  background-color: white;
-}
 
+}
+body{
+  background-image: url(../public/images/biljana-martinic-IGJ_21drT3g-unsplash.jpg);
+  background-size: cover;
+}
+a{
+  color: black;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;

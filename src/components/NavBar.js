@@ -20,11 +20,11 @@ const NavBar=(id)=>{
     },[])
 
     return(
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light colorFondo">
             <div class="container-fluid">
-            <Link to={'/'}><h1>HL</h1></Link>
-            {categories.map(cate =><NavLink key={cate.id} to ={`/category/${cate.id}`}>{cate.description}</NavLink>)}
-            <Link to={'/'}><CartWidgest></CartWidgest></Link>
+            <Link to={'/'} className='linkNav'><h1>HL</h1></Link>
+            {categories.map(cate =><NavLink className='linkNav' key={cate.id} to ={`/category/${cate.id}`}>{cate.description}</NavLink>)}
+            <Link className='linkNav' to={'/'}><CartWidgest></CartWidgest></Link>
         </div>
     </nav>
     

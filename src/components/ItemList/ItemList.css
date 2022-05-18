@@ -1,5 +1,6 @@
 .listGroup{
     display: flex;
-    flex-wrap: nowrap;
+    flex-direction:row;
+    max-width: 80vw;
 
 }

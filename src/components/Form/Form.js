@@ -88,7 +88,7 @@ const Form = () => {
                     <h2>Gracias por tu compra!</h2>
                     <p>Tu código de seguimiento es {orderId}</p>
                     <div>
-                        <NavLink to="/" >Volver al inicio</NavLink>
+                        <NavLink to="/" className='volverInicio' >Volver al inicio</NavLink>
                     </div>
                 </div>
             </>
@@ -104,13 +104,13 @@ const Form = () => {
         <form onSubmit={handleSubmit}>
             <div>
                 <div>
-                    <h1>Tus datos</h1>
+                    <h2>Tus datos</h2>
                     <label>Nombre: <input required type='text' onChange={handleChange} name="nombre" value={input.nombre || ""}/></label>
                     <label>Email: <input required className={(input.correo === input.correoConfirm) ? 'blueOk' : 'redWrong'} type='text' onChange={handleChange} name="correo" value={input.correo || ""}/></label>
                     <label>Confirmar Email: <input required className={(input.correo === input.correoConfirm) ? 'blueOk' : 'redWrong'} type='text' onChange={handleChange} onBlur={onBlurHandler} name="correoConfirm" value={input.correoConfirm || ""}/></label>
                     <label>Dirección: <input required type='text' onChange={handleChange} name="direccion" value={input.direccion || ""}/></label>
                     <label>Teléfono:<input required type="number" onChange={handleChange} name="telefono" value={input.telefono || ""}/></label>
-                    <button onClick={() => createOrder()} required type="button" disabled={buttonDisabled}>Finalizar compra</button>
+                    <button className="botonForm" onClick={() => createOrder()} required type="button" disabled={buttonDisabled}>Finalizar compra</button>
                 </div>
             </div>
         </form>
